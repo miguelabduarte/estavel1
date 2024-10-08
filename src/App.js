@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './App.css'; // Importa os estilos globais
+import Sidebar from './Sidebar'; // Importa o componente Sidebar
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Sidebar /> {/* Sidebar presente em todas as páginas */}
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Clientes" element={<Clientes />} />
+            <Route path="/Orcamentos" element={<Orcamentos />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
+
+const Home = () => <h1>Página Inicial</h1>;
+const Clientes = () => <h1>Pagina Clientes</h1>;
+const Orcamentos = () => <h1>Pagina Orçamentos</h1>;
 
 export default App;

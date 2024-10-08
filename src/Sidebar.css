@@ -1,0 +1,48 @@
+.sidebar {
+    width: 250px; /* Largura da sidebar */
+    background-color: #F0F3F4; /* Cor de fundo da sidebar */
+    padding: 20px; /* Espaçamento interno */
+    height: 72%; /* Altura da sidebar, ajustável conforme necessário */
+    position: absolute; /* Para que a sidebar possa ser posicionada */
+    top: 50%; /* Alinha a sidebar verticalmente ao meio da tela */
+    left: 7%; /* Alinha a sidebar do lado esquerdo com margem */
+    transform: translateY(-50%); /* Move a sidebar para cima pela metade da sua altura */
+    border-radius: 24px; /* Bordas arredondadas */
+    border: 4px solid #CDD5DB; /* Borda */
+    box-sizing: border-box; /* Inclui a borda na largura total */
+    box-shadow: 2px 2px 20px 4px rgba(146, 171, 186, 0.5); /* Sombra */
+}
+
+.sidebar-header {
+    display: flex; /* Alinha o logo ao centro */
+    justify-content: center; /* Centraliza a imagem horizontalmente */
+    border-bottom: 2px solid #CDD5DB; /* Linha abaixo da imagem */
+    padding-bottom: 15px; /* Espaçamento inferior */
+    margin-bottom: 50px; /* Espaço abaixo do header */
+}
+
+.sidebar-logo {
+    width: 100%; /* Ajuste para que a imagem preencha a largura desejada */
+    max-width: 200px; /* Limita a largura máxima da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-top: 5px; /* Ajusta o posicionamento do logo */
+}
+
+.sidebar-item {
+    list-style: none; /* Remove as marcas da lista */
+    margin: 10px 0; /* Espaço entre os botões */
+}
+
+.sidebar-icon {
+    display: flex; /* Para centralizar o ícone */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 200px; /* 70% da largura da sidebar menos 20px */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    margin: 0 auto; /* Centraliza o ícone horizontalmente dentro do container */
+    }
+
+.full-button {
+    width: 100%; /* Ajuste o tamanho do ícone conforme necessário */
+    height: auto; /* Ajuste o tamanho do ícone conforme necessário */
+} 
