@@ -1,0 +1,83 @@
+.clientes-container {
+  width: 50%; /* Largura do contêiner principal */
+  background-color: #F0F3F4; /* Cor de fundo do contêiner */
+  padding: 1%; /* Espaçamento interno */
+  height: 75%; /* Altura do contêiner, ajustável conforme necessário */
+  position: absolute; /* Para que o contêiner seja posicionado corretamente */
+  top: 50%; /* Alinha o contêiner verticalmente ao meio da tela */
+  left: 28%; /* Alinha o contêiner do lado esquerdo com margem */
+  transform: translateY(-44%); /* Move o contêiner para cima pela metade da sua altura */
+  border-radius: 24px; /* Bordas arredondadas */
+  border: 4px solid #CDD5DB; /* Borda */
+  box-sizing: border-box; /* Inclui a borda na largura total */
+  box-shadow: 2px 2px 20px 4px rgba(146, 171, 186, 0.5); /* Sombra */
+}
+
+h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+.clientes-table {
+  width:92%; /* A tabela ocupa toda a largura do contêiner */
+  border-collapse: collapse; /* Remove espaçamento entre as bordas da tabela */
+  margin: 0 auto; /* Centraliza a tabela horizontalmente */
+  border-collapse: collapse; /* Remove espaços entre as células */
+  border-radius: 18px 18px 6px 6px; /* Arredondar os cantos da tabela */
+  overflow: hidden; /* Esconde os cantos arredondados */
+}
+
+.clientes-table th, .clientes-table td {
+  border: 3px solid #081225;
+  padding: 0px; /* Espaçamento interno das células */
+  text-align: left; /* Alinhamento do texto à esquerda */
+}
+
+.clientes-table th {
+  background-color: #081225; /* Cor de fundo do cabeçalho */
+  color: #B5C2CA;
+}
+
+.edit-button, .delete-button {
+  margin-top: 10px; /* Espaçamento acima dos botões */
+  padding: 5px 10px; /* Espaçamento interno dos botões */
+  border: none; /* Sem borda */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor em forma de mão ao passar o mouse */
+}
+
+.edit-button {
+  background-color: #007bff; /* Cor do botão de editar */
+  color: #fff; /* Cor do texto do botão de editar */
+}
+
+.delete-button {
+  background-color: #dc3545; /* Cor do botão de apagar */
+  color: #fff; /* Cor do texto do botão de apagar */
+}
+
+.refresh-button {
+  margin-bottom: 20px; /* Espaço entre o botão de atualizar e a tabela */
+  padding: 10px 15px; /* Espaçamento interno do botão */
+  border: none; /* Sem borda */
+  border-radius: 5px; /* Bordas arredondadas */
+  background-color: #28a745; /* Cor do botão de atualizar */
+  color: #fff; /* Cor do texto do botão de atualizar */
+  cursor: pointer; /* Cursor em forma de mão ao passar o mouse */
+}
+
+
+th {
+  background-color: #CDD5DB; /* Cor de fundo do cabeçalho */
+  width: 100px; /* Ajuste a largura conforme necessário */
+  text-align: center; /* Centraliza o conteúdo */
+  padding: 10px; /* Espaçamento interno */
+}
+
+th img {
+  width: 60%; /* Ajuste o tamanho conforme necessário */
+  height: 100%; /* Mantém a proporção da imagem */
+  justify-content: center;
+  margin: auto;
+}

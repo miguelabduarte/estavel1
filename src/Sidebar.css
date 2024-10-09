@@ -1,8 +1,8 @@
 .sidebar {
-    width: 250px; /* Largura da sidebar */
+    width: 13%; /* Largura da sidebar */
     background-color: #F0F3F4; /* Cor de fundo da sidebar */
-    padding: 20px; /* Espaçamento interno */
-    height: 72%; /* Altura da sidebar, ajustável conforme necessário */
+    padding: 1%; /* Espaçamento interno */
+    height: 84%; /* Altura da sidebar, ajustável conforme necessário */
     position: absolute; /* Para que a sidebar possa ser posicionada */
     top: 50%; /* Alinha a sidebar verticalmente ao meio da tela */
     left: 7%; /* Alinha a sidebar do lado esquerdo com margem */
@@ -17,20 +17,19 @@
     display: flex; /* Alinha o logo ao centro */
     justify-content: center; /* Centraliza a imagem horizontalmente */
     border-bottom: 2px solid #CDD5DB; /* Linha abaixo da imagem */
-    padding-bottom: 15px; /* Espaçamento inferior */
-    margin-bottom: 50px; /* Espaço abaixo do header */
+    padding-bottom: 1.3vw; /* Espaçamento inferior */
+    margin-bottom: 3vw; /* Espaço abaixo do header */
 }
 
 .sidebar-logo {
     width: 100%; /* Ajuste para que a imagem preencha a largura desejada */
-    max-width: 200px; /* Limita a largura máxima da imagem */
     height: auto; /* Mantém a proporção da imagem */
     margin-top: 5px; /* Ajusta o posicionamento do logo */
 }
 
 .sidebar-item {
     list-style: none; /* Remove as marcas da lista */
-    margin: 10px 0; /* Espaço entre os botões */
+    margin: 15px 0; /* Espaço entre os botões */
 }
 
 .sidebar-icon {
