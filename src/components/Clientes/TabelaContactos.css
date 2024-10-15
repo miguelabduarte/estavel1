@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url("https://use.typekit.net/jhb3dyg.css");
+
+* {
+    font-family: sans-serif; /* Define a fonte padrão para todo o conteúdo */
+}
+
+.container {
+    max-height: 25vw; /* Limita a altura do container da tabela */
+    overflow-y: auto; /* Habilita a rolagem do container se o conteúdo exceder a altura */
+    position: relative; /* Adiciona posição relativa para a tabela */
+    border-radius: 12px; /* Arredonda os cantos do contêiner */
+    box-shadow: 2px 2px 20px 4px var(--sombrasidebar-color); /* Sombra */
+    width: 90%;
+    margin-left: 5%;
+}
+
+.header-container {
+    display: flex; /* Usar flexbox para alinhamento */
+    justify-content: space-between; /* Espaço entre o título e o botão */
+    align-items: center; /* Alinha verticalmente no centro */
+    margin-bottom: 3%; /* Espaçamento abaixo do cabeçalho */
+    margin-right: 70%;
+}
+
+.header-container h1 {
+    margin: 0; /* Remove margem padrão do h1 */
+}
+
+.content-table {
+    color: #ecedee;
+    border-collapse: collapse; /* Remove os espaços entre as bordas das células da tabela */
+    margin: 0; /* Remove margens ao redor da tabela */
+    min-width: 100%; /* Define a largura mínima da tabela */
+    width: 90%; /* Faz a tabela ocupar a largura total do container */
+    position: relative; /* Para garantir que o cabeçalho se sobreponha ao conteúdo */
+    
+}
+
+.content-table thead {
+    position: sticky; /* Torna o cabeçalho fixo */
+    top: 0; /* Fixa o cabeçalho no topo do container */
+    z-index: 1200; /* Garante que o cabeçalho fique acima do conteúdo */
+    border-radius: 12px 12px 0 0; /* Arredonda os cantos superiores do cabeçalho */
+    background-color: #18181b; /* Cor de fundo do cabeçalho */
+    font-size : 130%;
+}
+
+.content-table thead tr {
+    color: #FFFFFFDE; /* Define a cor do texto no cabeçalho da tabela */
+    text-align: left; /* Alinha o texto do cabeçalho à esquerda */
+    font-weight: bold; /* Define o texto do cabeçalho como negrito */
+
+}
+
+
+.content-table th {
+    font-family: 'Lato', sans-serif; /* Aplica a fonte Lato */
+    padding: 1.2vh 1vh; /* Define o espaçamento interno das células */
+    text-align: center;
+    font-weight: 550;
+    font-size: 100%;
+    border-bottom: 1px solid #B4B4B4;
+    
+     
+}
+
+
+.content-table td {
+    color: #A8A8A8;
+    padding: 1vw 1vh; /* Define o espaçamento interno das células */
+    text-align: center;
+    font-family: 'Myriad', sans-serif; /* Aplica a fonte Myriad às células */
+    
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #B4B4B4; /* Adiciona uma borda inferior às linhas do corpo da tabela */
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #18181b; /* Define a cor de fundo das linhas pares */
+}
+
+.content-table tbody tr:nth-of-type(odd) {
+    background-color: #27272A; /* Define a cor de fundo das linhas pares */
+}
+
+.content-table tbody tr.active-row {
+    font-weight: bold; /* Define a linha ativa como negrito */
+    color: #009879; /* Define a cor do texto da linha ativa */
+}
+
+/* Estilo para os botões na coluna Ações */
+.content-table tbody td {
+    font-size: 100%;
+    padding: 0; /* Remove o padding para a coluna de ações */
+    text-align: center; /* Centraliza o texto dos botões */
+}
+
+.content-table tbody td button {
+    margin: 8% 7%; /* Margem ao redor dos botões */
+    width: auto; /* Faz os botões ocuparem toda a largura da célula */
+    border: none; /* Remove a borda dos botões */
+    background-color: #009879; /* Cor de fundo dos botões */
+    color: white; /* Cor do texto dos botões */
+    padding: 2% 3%; /* Espaçamento interno dos botões */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+}
+
+.content-table tbody td button:hover {
+    background-color: #007f68; /* Cor de fundo ao passar o mouse sobre os botões */
+}
+
+/* Estilos para a coluna de ações na tabela */
+.action-buttons {
+    display: flex; /* Usar flexbox para os botões */
+    justify-content: center; /* Centraliza os botões na célula */
+}
+
+/* Customizando a barra de rolagem para navegadores baseados em WebKit (Chrome, Safari, Edge) */
+.container::-webkit-scrollbar {
+    width: 0; /* Largura da barra de rolagem */
+   
+}
+
+.container::-webkit-scrollbar-track {
+    background: #f1f1f100; /* Cor do fundo da barra de rolagem */
+    
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: #f0f3f400; /* Cor da thumb da barra de rolagem */
+    border-radius: 2vh; /* Arredonda a thumb da barra de rolagem */
+    
+}
+
+/* Estilos para o Modal */
+.ReactModal__Overlay {
+    position: fixed; /* Certifique-se de que o overlay cubra a tela toda */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2); /* Leve sombreamento para o fundo */
+    backdrop-filter: blur(3px); /* Aplica o desfoque */
+    -webkit-backdrop-filter: blur(5px); /* Compatibilidade com Safari */
+    z-index: 1000; /* Garante que o overlay esteja acima de outros elementos */
+}
+
+.ReactModal__Content {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-140%, -290%) scale(0); /* Começa em escala 0 */
+    width: 20%; /* Largura do modal */
+    height: auto; /* Deixe a altura automática */
+    padding: 20px; /* Espaçamento interno do modal */
+    background-color: white; /* Cor de fundo do modal */
+    border-radius: 16px; /* Bordas arredondadas */
+    border: 4px solid #CDD5DB; /* Borda */
+    box-sizing: border-box; /* Inclui a borda na largura total */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+    overflow: hidden; /* Evita overflow no modal */
+    transition: transform 0.6s ease-in-out; /* Adiciona uma transição suave */
+}
+
+
+.ReactModal__Content--after-open {
+    transform: translate(-50%, -230%) scale(1); /* Quando o modal está aberto, escala para 1 */
+}
+
+.ReactModal__Content--before-close {
+    transform: translate(-50%, -230%) scale(0); /* Quando o modal está fechando, escala para 0 */
+}
+
+.ReactModal__Content h2 {
+    font-size: 1.7rem; /* Tamanho do título do modal */
+    margin-bottom: 10px; /* Espaço abaixo do título */
+}
+
+/* Estilos para o formulário do modal */
+.ReactModal__Content form {
+    display: flex; /* Usar flexbox para organizar os campos */
+    flex-direction: column; /* Colocar os campos em coluna */
+}
+
+/* Estilos para os campos de entrada */
+.ReactModal__Content input[type="text"],
+.ReactModal__Content input[type="email"] {
+    padding: 1%; /* Espaçamento interno dos campos */
+    margin-bottom: 0px; /* Espaço abaixo de cada campo */
+    border: 1px solid #ccc; /* Borda dos campos */
+    border-radius: 8px; /* Bordas arredondadas */
+    font-size: 1rem; /* Tamanho da fonte dos campos */
+    margin-left: 5%;
+}
+
+/* Se necessário, resete estilos indesejados */
+.ReactModal__Content label {
+    /* Estilos apenas para as labels no modal, se necessário */
+    color: inherit; /* Mantém a cor original */
+    font-size: inherit; /* Mantém o tamanho original */
+}
+
+
+
+/* Estilos para a seção dos botões */
+.button-group {
+    display: flex; /* Usar flexbox para os botões */
+    flex-direction: row;
+    justify-content: space-between; /* Espaço igual entre os botões */
+    margin-top: 20px; /* Espaço acima dos botões */
+}
+
+/* Estilos para os botões */
+.ReactModal__Content button {
+    flex: 1; /* Faz com que os botões ocupem a mesma largura */
+    margin: 0 5px; /* Margem lateral entre os botões */
+    padding: 1vh 0px; /* Espaçamento interno dos botões */
+    border: none; /* Remove a borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #009879; /* Cor de fundo dos botões */
+    color: white; /* Cor do texto dos botões */
+    font-size: 1rem; /* Tamanho da fonte dos botões */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+/* Efeito hover para os botões */
+.ReactModal__Content button:hover {
+    background-color: #007f68; /* Cor de fundo ao passar o mouse */
+}
+
+
+/* Especificamente para o botão X */
+.modal-close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none !important;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #000000 !important;
+    font-weight: bold;
+    z-index: 1001;
+    transition: color 0.3s ease-in-out;
+}
+
+.modal-close-button:hover {
+    transform: scale(1.3);
+}  

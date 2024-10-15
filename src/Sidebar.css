@@ -1,6 +1,23 @@
+/* Cores  para Light/Dark mode */
+:root {
+    --background-color: #797979;
+    --fundosidebar-color: #F0F3F4;
+    --sombrasidebar-color: #616161;
+    --bordasidebar-color: #ADB5BD;
+    --fundopagecontainer-color: #F0F3F4;
+  }
+  
+  [data-theme="dark"] {
+    --background-color: #111015;
+    --fundosidebar-color: #27272A;
+    --sombrasidebar-color: #000000;
+    --bordasidebar-color: #616161;
+    --fundopagecontainer-color: #27272A;
+  }
+  
 .sidebar {
     width: 13%; /* Largura da sidebar */
-    background-color: #F0F3F4; /* Cor de fundo da sidebar */
+    background-color: var(--fundosidebar-color); /* Cor de fundo da sidebar */
     padding: 1%; /* Espaçamento interno */
     height: 84%; /* Altura da sidebar, ajustável conforme necessário */
     position: absolute; /* Para que a sidebar possa ser posicionada */
@@ -8,15 +25,15 @@
     left: 7%; /* Alinha a sidebar do lado esquerdo com margem */
     transform: translateY(-50%); /* Move a sidebar para cima pela metade da sua altura */
     border-radius: 24px; /* Bordas arredondadas */
-    border: 4px solid #CDD5DB; /* Borda */
+    border: 4px solid var(--bordasidebar-color); /* Borda */
     box-sizing: border-box; /* Inclui a borda na largura total */
-    box-shadow: 2px 2px 20px 4px rgba(146, 171, 186, 0.5); /* Sombra */
+    box-shadow: 2px 2px 20px 4px var(--sombrasidebar-color); /* Sombra */
 }
 
 .sidebar-header {
     display: flex; /* Alinha o logo ao centro */
     justify-content: center; /* Centraliza a imagem horizontalmente */
-    border-bottom: 2px solid #CDD5DB; /* Linha abaixo da imagem */
+    border-bottom: 2px solid var(--bordasidebar-color); /* Linha abaixo da imagem */
     padding-bottom: 1.3vw; /* Espaçamento inferior */
     margin-bottom: 3vw; /* Espaço abaixo do header */
 }
@@ -36,7 +53,7 @@
     display: flex; /* Para centralizar o ícone */
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
-    width: 200px; /* 70% da largura da sidebar menos 20px */
+    width: 100%; /* 70% da largura da sidebar menos 20px */
     cursor: pointer; /* Muda o cursor para indicar que é clicável */
     margin: 0 auto; /* Centraliza o ícone horizontalmente dentro do container */
     }

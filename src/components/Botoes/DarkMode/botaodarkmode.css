@@ -1,0 +1,87 @@
+/* botaodarkmode.css */
+
+
+
+/* Adicione um contêiner para o botão para que ele possa ser posicionado */
+.botao-dark-mode-container {
+    position: fixed; /* Absoluto para não afetar o layout */
+    top: 1vw; /* Distância do topo da página */
+    right: 2vw; /* Distância da margem direita */
+
+label {
+    width: 3vw; /* Largura do botão */
+    height: 1.3vw; /* Altura do botão */
+    position: relative; /* Mantenha isso para o label */
+    display: block;  
+    background:  #ebebeb;
+    border-radius: 20px; /* Raiz das bordas do botão */ 
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.icon {
+    position: absolute;
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajusta o centro vertical */
+    height: auto; /* Mantém a proporção */
+    width: auto;
+    margin: 0% 42%;
+}
+
+.icon:first-of-type { /* Ícone Sol */
+    right: 0.55vw; /* Espaço à esquerda */
+    z-index: 1;
+}
+
+.icon:last-of-type { /* Ícone Lua */
+    left: 0.55vw; /* Espaço à direita */
+    z-index: 1;
+}
+
+label:after {
+    content: "";
+    width: 1.2vw; /* Tamanho do botão interno */
+    height: 1.2vw; /* Tamanho do botão interno */
+    position: absolute;
+    top: 0.05vw; /* Posicionamento do botão interno */
+    left: 0.05vw; /* Posicionamento do botão interno */
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    border-radius: 9px; /* Raiz das bordas do botão interno */
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}   
+
+
+input  {
+    width: 0;
+    height: 0;
+    visibility:hidden;
+}
+
+
+input:checked + label {
+    background: #242424; 
+}
+
+input:checked + label:after {
+    left: 2.9vw; 
+    transform: translateX(-100%);
+    background: linear-gradient(180deg, #777, #3a3a3a);
+
+
+}
+
+label:active:after {
+    width: 1.6vw; 
+} 
+
+/* Alterar a cor do ícone Lua para branco no modo escuro */
+input:checked + label .icon:last-of-type {
+    filter: brightness(0) invert(1); /* Torna a Lua branca */
+}
+
+/* Alterar a cor do ícone Sol para laranja no modo escuro */
+input:checked + label .icon:first-of-type {
+    filter: brightness(2) sepia(1) saturate(1000%) hue-rotate(-45deg);}
+}

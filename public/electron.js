@@ -1,8 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
-const sqlite3 = require('sqlite3').verbose();
-
-let db;
+const fs = require('fs');
 
 // Função para criar a janela da aplicação
 function createWindow() {
@@ -10,76 +8,53 @@ function createWindow() {
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
+      preload: path.join(__dirname, 'preload.js'), // Adicione o caminho para o preload.js
+      nodeIntegration: false,  // Melhor prática de segurança, desative o nodeIntegration
+      contextIsolation: true,  // Ative o contextIsolation
     },
   });
 
   win.loadURL('http://localhost:3000'); // URL do servidor de desenvolvimento do React
 }
 
-// Função para configurar a base de dados SQLite
-function setupDatabase() {
-  const dbPath = path.resolve(__dirname, 'clientes.db'); // Caminho do arquivo da base de dados
-  db = new sqlite3.Database(dbPath, (err) => {
-    if (err) {
-      console.error('Erro ao conectar ao SQLite:', err.message);
-    } else {
-      console.log('Conectado ao SQLite');
-    }
-  });
-
-  // Cria a tabela 'clientes' se ela não existir
-  db.serialize(() => {
-    db.run(`
-      CREATE TABLE IF NOT EXISTS clientes (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome TEXT,
-        telemovel TEXT,
-        email TEXT
-      )
-    `);
-  });
-}
-
-// Função para obter os clientes da base de dados
-function getClientes(callback) {
-  db.all('SELECT * FROM clientes', (err, rows) => {
-    if (err) {
-      console.error('Erro ao buscar os clientes:', err.message);
-      callback([]);
-    } else {
-      callback(rows);
-    }
-  });
-}
-
-// IPC para responder às requisições do frontend
-ipcMain.handle('get-clientes', async () => {
-  return new Promise((resolve) => {
-    getClientes((data) => {
-      resolve(data);
-    });
-  });
-});
-
 // Inicializa a aplicação Electron
-app.whenReady().then(() => {
-  createWindow();
-  setupDatabase();
-});
+app.whenReady().then(createWindow);
 
-// Fecha a base de dados quando a aplicação é encerrada
+// Gerencia o ciclo de vida da aplicação
 app.on('window-all-closed', () => {
-  if (db) {
-    db.close((err) => {
-      if (err) {
-        console.error('Erro ao fechar a base de dados:', err.message);
-      }
-      console.log('Base de dados SQLite fechada.');
-    });
-  }
   if (process.platform !== 'darwin') {
     app.quit();
   }
+});
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow();
+  }
+});
+
+// Funções para salvar e carregar contactos
+function saveContacts(contacts) {
+    const data = JSON.stringify(contacts, null, 2);
+    const filePath = path.join(__dirname, 'contacts.json');
+    fs.writeFileSync(filePath, data, 'utf-8');
+}
+
+function loadContacts() {
+  const filePath = path.join(__dirname, 'contacts.json');
+  if (fs.existsSync(filePath)) {
+      const data = fs.readFileSync(filePath, 'utf-8');
+      return JSON.parse(data);
+  }
+  return [];
+}
+
+// Comunicação IPC entre Electron e React
+ipcMain.on('load-contacts', (event) => {
+    const contacts = loadContacts();
+    event.returnValue = contacts;
+});
+
+ipcMain.on('save-contacts', (event, contacts) => {
+    saveContacts(contacts);
 });

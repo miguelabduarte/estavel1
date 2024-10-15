@@ -17,6 +17,7 @@ import { ReactComponent as EstatisticasIcon } from './assets/icons/estatisticas.
 import { ReactComponent as EstatisticasHoverIcon } from './assets/icons/estatisticas-hover.svg'; // Novo ícone hover
 import logoImageMenu from './assets/icons/joaquimduartelogofull.png';
 
+
 function Sidebar() {
   const location = useLocation(); // Obter a página atual
   const [hoveredItem, setHoveredItem] = useState(null); // Estado para armazenar o item que está sendo "hovered"
@@ -26,6 +27,7 @@ function Sidebar() {
   const handleMouseLeave = () => setHoveredItem(null);
 
   return (
+    
     <div className="sidebar">
       <div className="sidebar-header">
         <img src={logoImageMenu} alt="LogoMenu" className="sidebar-logo" />
